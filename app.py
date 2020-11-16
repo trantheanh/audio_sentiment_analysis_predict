@@ -2,13 +2,17 @@ import tensorflow.keras as keras
 from tensorflow.keras.models import model_from_json
 import numpy as np
 import librosa
+import sys
 
 import pickle
 
 
-def extract_feature(file_path):
+file_path = sys.argv[1]
+
+
+def extract_feature(path):
     feature_all = np.empty((0, 193))
-    X, sr = librosa.load(file_path, duration=3)
+    X, sr = librosa.load(path, duration=3)
     stft = np.abs(librosa.stft(X))
     mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sr, n_mfcc=40).T, axis=0)
     chroma = np.mean(librosa.feature.chroma_stft(S=stft, sr=sr).T, axis=0)
@@ -26,7 +30,6 @@ def run():
         model: keras.models.Model = model_from_json(model_json)
         model.load_weights("model/mlp_tanh_adadelta_model.h5")
 
-    file_path = "input/test.wav"
     features = extract_feature(file_path)
 
     y_pred = model.predict(features)
