@@ -1,3 +1,3 @@
-webrtcvad
+tensorflow==2.2.0
 librosa
-xgboost
+numpy
