@@ -10,11 +10,11 @@ from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report
-from keras.layers import LSTM
-from keras.layers import Bidirectional
-from keras.layers import TimeDistributed
-from keras.models import Sequential
-from keras.layers import Dense, Activation,Dropout, Flatten, Embedding
+from tensorflow.keras.layers import LSTM
+from tensorflow.keras.layers import Bidirectional
+from tensorflow.keras.layers import TimeDistributed
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation,Dropout, Flatten, Embedding
 import pickle
 from xgboost import XGBClassifier
 

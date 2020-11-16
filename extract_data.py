@@ -18,4 +18,7 @@ for i in data_folders:
 		if isfile(join(temp_join,j)):
 			files.append(j)
 			temp = j.split('.')[0].split('-')
-			subprocess.call("mv %s %s" % (join(temp_join,j),join(new_path,temp[2])),shell=True)
+			subprocess.call("mv %s %s" % (
+				join(temp_join,j),
+				join(new_path,temp[2])
+			),shell=True)
